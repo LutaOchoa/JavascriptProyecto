@@ -10,11 +10,13 @@ let carrito = []
 
 let seleccion=prompt("Hola desea comprar algun producto si o no")
 
+//para que vuelva a preguntar por si se equivocaron
 while(seleccion != "si" && seleccion != "no"){
     alert("por favor ingresar si o no")
     seleccion=prompt("hola desea comprar algo si o no")
 }
 
+//si la respuesta es si
 if (seleccion=="si"){
     alert("a continuacion la lista de productos")
     let todosLosProductos =productos.map(
@@ -25,10 +27,13 @@ if (seleccion=="si"){
     alert("gracias por venir, hasta pronto")
 }
 
+
+//si la respuesta es no
 while (seleccion != "no"){
     let producto=prompt("agrega un producto a tu carrito")
     let precio=0
 
+//seleccion de los productos con su precio
     if (producto=="huevo"||producto=="gaseosa"||producto=="yogur"||producto=="leche"||producto=="mayonesa"){
         switch (producto){
             case "huevo":
@@ -69,5 +74,6 @@ while (seleccion != "no"){
     }
 }
 
+//resultado final del carrito
 const total =carrito.reduce((acc,el)=> acc + el.precio * el.unidades,0)
 alert(`su compra fue de: ${total} $` )
